@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Electro-B | آکادمی الکترونیک</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--y:#FCD34D;--y2:#F59E0B;--bg:#0A0A0A;--bg2:#141414;--bg3:#1e1e1e;--w:#FAFAFA;--gray:#9ca3af;--border:rgba(252,211,77,0.15)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Vazirmatn',sans-serif;background:var(--bg);color:var(--w);overflow-x:hidden;line-height:1.6}
+header{position:sticky;top:0;z-index:100;background:rgba(10,10,10,0.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0.9rem 1.5rem;display:flex;justify-content:space-between;align-items:center}
+.logo{display:flex;align-items:center;gap:0.5rem;font-weight:800;font-size:1.3rem;color:var(--y);text-decoration:none}
+.logo .bolt{font-size:1.5rem}.logo .sub{font-size:0.7rem;color:var(--gray);display:block;font-weight:400}
+nav ul{display:flex;gap:1.5rem;list-style:none;align-items:center}
+nav a{color:var(--w);text-decoration:none;font-size:0.95rem;padding:0.4rem 0.6rem;border-radius:8px;transition:all 0.2s}
+nav a:hover{color:var(--y);background:rgba(252,211,77,0.08)}
+.btn-login{background:var(--y);color:var(--bg)!important;font-weight:600;padding:0.5rem 1rem!important;border-radius:999px!important}
+.btn-login:hover{background:var(--y2)!important}
+.hero{min-height:75vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:3rem 1.5rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(252,211,77,0.15) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.hero>*{position:relative;z-index:1}
+.badge{display:inline-block;padding:0.4rem 1rem;background:rgba(252,211,77,0.1);border:1px solid var(--y);color:var(--y);border-radius:999px;font-size:0.85rem;margin-bottom:1.5rem}
+.hero h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:800;margin-bottom:1rem;line-height:1.3}
+.hero h1 span{color:var(--y)}
+.hero p{color:var(--gray);font-size:clamp(1rem,2vw,1.15rem);max-width:600px;margin-bottom:2rem}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
+.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.8rem 1.5rem;border-radius:999px;font-family:inherit;font-size:1rem;font-weight:600;cursor:pointer;border:none;text-decoration:none;transition:all 0.25s}
+.btn-primary{background:var(--y);color:var(--bg)}.btn-primary:hover{background:var(--y2);transform:translateY(-2px)}
+.btn-secondary{background:transparent;color:var(--w);border:1px solid var(--border)}.btn-secondary:hover{border-color:var(--y);color:var(--y)}
+.creator-credit{margin-top:3rem;font-size:0.85rem;color:var(--gray)}.creator-credit strong{color:var(--y)}
+.section{padding:4rem 1.5rem;max-width:1200px;margin:0 auto}
+.section-head{text-align:center;margin-bottom:3rem}
+.section-head h2{font-size:clamp(1.6rem,4vw,2.5rem);font-weight:800;margin-bottom:0.5rem}
+.section-head h2 span{color:var(--y)}.section-head p{color:var(--gray)}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
+.project-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:1.5rem;cursor:pointer;transition:all 0.3s;position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;text-align:center}
+.project-card::after{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(252,211,77,0.1),transparent 60%);opacity:0;transition:opacity 0.3s;pointer-events:none}
+.project-card:hover{transform:translateY(-6px);border-color:var(--y);box-shadow:0 10px 40px rgba(252,211,77,0.15)}
+.project-card:hover::after{opacity:1}
+.cube-wrap{perspective:700px;width:130px;height:130px;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center}
+.cube{width:90px;height:90px;position:relative;transform-style:preserve-3d;animation:cubeSpin 14s infinite linear}
+.project-card:hover .cube{animation-duration:4s}
+@keyframes cubeSpin{from{transform:rotateX(-20deg) rotateY(0)}to{transform:rotateX(-20deg) rotateY(360deg)}}
+.cube-face{position:absolute;width:90px;height:90px;display:flex;align-items:center;justify-content:center;font-size:2.5rem;background:rgba(252,211,77,0.08);border:1.5px solid var(--y);border-radius:10px;box-shadow:inset 0 0 20px rgba(252,211,77,0.15),0 0 15px rgba(252,211,77,0.2)}
+.cube-face.front{transform:translateZ(45px)}.cube-face.back{transform:rotateY(180deg) translateZ(45px)}
+.cube-face.right{transform:rotateY(90deg) translateZ(45px)}.cube-face.left{transform:rotateY(-90deg) translateZ(45px)}
+.cube-face.top{transform:rotateX(90deg) translateZ(45px)}.cube-face.bottom{transform:rotateX(-90deg) translateZ(45px)}
+.project-card h3{font-size:1.15rem;font-weight:700;margin-bottom:0.5rem}
+.difficulty{display:inline-block;font-size:0.75rem;padding:0.2rem 0.6rem;border-radius:999px;background:rgba(252,211,77,0.15);color:var(--y);margin-bottom:0.75rem}
+.project-card .mission{font-size:0.85rem;color:var(--gray);line-height:1.6}
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);z-index:200;display:none;align-items:center;justify-content:center;padding:1rem;overflow-y:auto}
+.modal-overlay.active{display:flex}
+.modal{background:var(--bg2);border:1px solid var(--border);border-radius:20px;max-width:720px;width:100%;max-height:90vh;overflow-y:auto;position:relative;padding:2rem}
+.modal-close{position:absolute;top:1rem;left:1rem;background:var(--bg3);border:1px solid var(--border);color:var(--w);width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center;transition:all 0.2s;z-index:10}
+.modal-close:hover{background:var(--y);color:var(--bg)}
+.scene-3d{perspective:1000px;height:320px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at center,rgba(252,211,77,0.05),transparent 70%);border-radius:16px;margin-bottom:1.5rem;overflow:hidden;position:relative}
+.scene-rotator{width:200px;height:200px;position:relative;transform-style:preserve-3d;animation:sceneSpin 20s infinite linear}
+@keyframes sceneSpin{from{transform:rotateX(-25deg) rotateY(0)}to{transform:rotateX(-25deg) rotateY(360deg)}}
+.scene-platform{position:absolute;bottom:-40px;left:50%;transform:translateX(-50%) rotateX(90deg);width:220px;height:220px;background:radial-gradient(circle,rgba(252,211,77,0.35),transparent 70%);border-radius:50%;filter:blur(15px)}
+.arduino-board{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:70px;height:150px;background:linear-gradient(135deg,#0a6e3d,#14a05c);border-radius:6px;box-shadow:0 10px 30px rgba(0,0,0,0.7),inset 0 0 20px rgba(255,255,255,0.05)}
+.arduino-board::before{content:'';position:absolute;top:20px;left:50%;transform:translateX(-50%);width:30px;height:30px;background:#1a1a1a;border-radius:3px}
+.arduino-board::after{content:'';position:absolute;top:5px;left:50%;transform:translateX(-50%);width:20px;height:12px;background:#888;border-radius:2px}
+.scene-comp{position:absolute;border-radius:8px;box-shadow:0 8px 20px rgba(0,0,0,0.5)}
+.comp-1{top:10%;left:15%;width:40px;height:40px;background:linear-gradient(135deg,#ff5c5c,#cc0000)}
+.comp-2{top:15%;right:10%;width:45px;height:45px;background:linear-gradient(135deg,#5cb8ff,#0077cc)}
+.comp-3{bottom:15%;left:10%;width:35px;height:35px;background:linear-gradient(135deg,#ffd966,#d4a017)}
+.comp-4{bottom:10%;right:15%;width:40px;height:40px;background:linear-gradient(135deg,#a5a5a5,#555)}
+.modal h2{font-size:1.8rem;margin-bottom:0.5rem;color:var(--y)}
+.difficulty-badge{display:inline-block;padding:0.3rem 0.8rem;background:rgba(252,211,77,0.15);color:var(--y);border-radius:999px;font-size:0.8rem;margin-bottom:1.5rem}
+.modal h3{font-size:1.1rem;margin:1.5rem 0 0.75rem;color:var(--y)}
+.modal p{color:var(--gray);margin-bottom:0.75rem}
+.modal ul{list-style:none;padding:0}
+.modal ul li{padding:0.4rem 1.5rem 0.4rem 0;position:relative;color:var(--w)}
+.modal ul li::before{content:'◆';position:absolute;right:0;color:var(--y);font-size:0.7rem;top:0.6rem}
+.login-box{max-width:420px;text-align:center}
+.login-input{width:100%;padding:0.9rem 1rem;background:var(--bg3);border:1px solid var(--border);border-radius:12px;color:var(--w);font-family:inherit;font-size:1rem;text-align:center;letter-spacing:2px;margin-bottom:1rem}
+.login-input:focus{outline:none;border-color:var(--y);box-shadow:0 0 0 3px rgba(252,211,77,0.15)}
+.login-error{color:#ff6b6b;font-size:0.85rem;margin-bottom:1rem;display:none}
+.login-error.show{display:block}
+.account-header{display:flex;align-items:center;gap:1rem;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border)}
+.account-avatar{width:64px;height:64px;border-radius:50%;background:var(--y);color:var(--bg);display:flex;align-items:center;justify-content:center;font-size:2rem}
+.account-header h3{font-size:1.3rem;margin-bottom:0.2rem}.account-header .role{color:var(--gray);font-size:0.9rem}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem;margin-bottom:2rem}
+.stat-card{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:1.25rem;text-align:center}
+.stat-card .num{font-size:2rem;font-weight:800;color:var(--y);display:block}
+.stat-card .label{font-size:0.85rem;color:var(--gray)}
+.leaderboard h4{font-size:1.1rem;margin-bottom:1rem;color:var(--y)}
+.leader-row{display:flex;justify-content:space-between;align-items:center;padding:0.75rem 1rem;background:var(--bg3);border-radius:10px;margin-bottom:0.5rem}
+.leader-row.me{border:1px solid var(--y)}
+.leader-rank{font-weight:800;color:var(--y);min-width:30px}.leader-name{flex:1}.leader-score{color:var(--y);font-weight:600}
+.coming-soon{text-align:center;padding:3rem 1rem;color:var(--gray)}
+.coming-soon .icon{font-size:3rem;margin-bottom:1rem}
+footer{text-align:center;padding:2rem 1.5rem;border-top:1px solid var(--border);color:var(--gray);font-size:0.9rem;margin-top:4rem}
+footer strong{color:var(--y)}
+@media(max-width:768px){header{padding:0.75rem 1rem}nav ul{gap:0.5rem}nav a{font-size:0.85rem;padding:0.3rem 0.4rem}.section{padding:3rem 1rem}.modal{padding:1.5rem}.scene-3d{height:240px}}
+@media(max-width:480px){nav ul li:not(:last-child){display:none}nav ul li:last-child a{padding:0.4rem 0.8rem!important}.hero{padding:2rem 1rem}.cube-wrap{width:110px;height:110px}.cube{width:70px;height:70px}.cube-face{width:70px;height:70px;font-size:2rem}.cube-face.front{transform:translateZ(35px)}.cube-face.back{transform:rotateY(180deg) translateZ(35px)}.cube-face.right{transform:rotateY(90deg) translateZ(35px)}.cube-face.left{transform:rotateY(-90deg) translateZ(35px)}.cube-face.top{transform:rotateX(90deg) translateZ(35px)}.cube-face.bottom{transform:rotateX(-90deg) translateZ(35px)}}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="#" class="logo">
+    <span class="bolt">⚡</span>
+    <div>Electro-B<span class="sub">آکادمی الکترونیک</span></div>
+  </a>
+  <nav>
+    <ul>
+      <li><a href="#home">خانه</a></li>
+      <li><a href="#projects">پروژه‌ها</a></li>
+      <li><a href="#quizzes">کوییزها</a></li>
+      <li><a href="#tutorials">آموزش‌ها</a></li>
+      <li><a href="#" class="btn-login" id="loginBtn">ورود</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <span class="badge">🚀 آکادمی الکترونیک و آردوینو</span>
+  <h1>با <span>Electro-B</span> الکترونیک رو<br>واقعی یاد بگیر</h1>
+  <p>پروژه‌های عملی، کوییزهای تعاملی و آموزش‌های گام‌به‌گام با آردوینو نانو — برای همه، از مبتدی تا حرفه‌ای.</p>
+  <div class="hero-actions">
+    <a href="#projects" class="btn btn-primary">🚀 شروع پروژه‌ها</a>
+    <a href="#quizzes" class="btn btn-secondary">🎯 کوییزها</a>
+  </div>
+  <div class="creator-credit">ساخته‌شده توسط <strong>Mohammad Mahdi Abasian</strong></div>
+</section>
+
+<section class="section" id="projects">
+  <div class="section-head">
+    <h2>پروژه‌های <span>آردوینو نانو</span></h2>
+    <p>روی هر پروژه کلیک کن تا جزئیات، قطعات و کاربردش رو ببینی</p>
+  </div>
+  <div class="projects-grid" id="projectsGrid"></div>
+</section>
+
+<section class="section" id="quizzes">
+  <div class="section-head"><h2>کوییزهای <span>تعاملی</span></h2><p>دانش‌ت رو بسنج و امتیاز بگیر (به‌زودی)</p></div>
+  <div class="coming-soon"><div class="icon">🎯</div><p>بخش کوییزها به‌زودی اضافه می‌شه</p></div>
+</section>
+
+<section class="section" id="tutorials">
+  <div class="section-head"><h2>آموزش‌های <span>گام‌به‌گام</span></h2><p>از صفر تا ساخت پروژه‌های واقعی (به‌زودی)</p></div>
+  <div class="coming-soon"><div class="icon">📚</div><p>بخش آموزش‌ها به‌زودی اضافه می‌شه</p></div>
+</section>
+
+<div class="modal-overlay" id="projectModal"><div class="modal" id="projectModalContent"></div></div>
+<div class="modal-overlay" id="loginModal">
+  <div class="modal login-box">
+    <button class="modal-close" onclick="closeModal('loginModal')">×</button>
+    <h2>ورود به حساب</h2>
+    <p>کد اختصاصی خودت رو وارد کن</p>
+    <input type="text" class="login-input" id="loginCode" placeholder="کد ورود" autocomplete="off">
+    <div class="login-error" id="loginError">کد اشتباهه! دوباره تلاش کن</div>
+    <button class="btn btn-primary" style="width:100%" onclick="attemptLogin()">ورود</button>
+    <p style="margin-top:1.5rem;font-size:0.8rem;color:var(--gray)">فقط دانش‌آموزان و اساتید کد ورود دارن. استفاده از سایت برای عموم آزاده.</p>
+  </div>
+</div>
+<div class="modal-overlay" id="accountModal"><div class="modal" id="accountModalContent"></div></div>
+
+<footer>
+  <p>© 2025 Electro-B — ساخته‌شده با ⚡ توسط <strong>Mohammad Mahdi Abasian</strong></p>
+</footer>
+
+<script>
+// ⚠️⚠️⚠️ کدهای ورود رو از اینجا عوض کن ⚠️⚠️⚠️
+const ACCOUNTS = [
+  { code: "MAHDI2025", name: "محمدمهدی عباسیان", role: "teacher", avatar: "👨‍🏫" },
+  { code: "TEACHER01", name: "استاد همکار", role: "teacher", avatar: "👩‍🏫" },
+  { code: "STU001", name: "دانش‌آموز ۱", role: "student", avatar: "🧑" },
+  { code: "STU002", name: "دانش‌آموز ۲", role: "student", avatar: "🧑" },
+  { code: "STU003", name: "دانش‌آموز ۳", role: "student", avatar: "🧑" },
+];
+
+const PROJECTS = [
+  { id:1, name:"چراغ چشمک‌زن", icon:"💡", difficulty:"مبتدی",
+    mission:"روشن و خاموش کردن LED با فاصله زمانی مشخص — اولین قدم ورود به دنیای آردوینو",
+    parts:["آردوینو نانو","LED قرمز","مقاومت ۲۲۰ اهم","سیم جامپر","بردبورد کوچک"],
+    applications:["چراغ‌های هشدار خودرو","نورپردازی دکوراتیو","چراغ‌های ایمنی جاده","علائم دستگاه‌های صنعتی"],
+    learn:"یاد می‌گیری چطور با آردوینو خروجی دیجیتال بسازی و زمان‌بندی کنی." },
+  { id:2, name:"سنسور دما و رطوبت", icon:"🌡️", difficulty:"مبتدی",
+    mission:"خواندن دما و رطوبت محیط با DHT11 و نمایش روی صفحه OLED",
+    parts:["آردوینو نانو","سنسور DHT11","صفحه OLED","سیم جامپر","بردبورد"],
+    applications:["گلخانه هوشمند","ترموستات خانه","مانیتورینگ انبار","ایستگاه هواشناسی شخصی"],
+    learn:"با پروتکل‌های ارتباطی سنسورها و نمایش داده آشنا می‌شی." },
+  { id:3, name:"آلارم حرکتی", icon:"🚨", difficulty:"متوسط",
+    mission:"تشخیص حرکت انسان با سنسور PIR و فعال‌کردن هشدار صوتی",
+    parts:["آردوینو نانو","سنسور PIR","بازر","LED قرمز","سیم جامپر"],
+    applications:["سیستم دزدگیر خانه","چراغ اتوماتیک راهرو","دستگاه حضور و غیاب","پروژه‌های امنیتی"],
+    learn:"یاد می‌گیری چطور ورودی دیجیتال رو پردازش کنی و به رویدادها پاسخ بدی." },
+  { id:4, name:"سنسور فاصله", icon:"📏", difficulty:"متوسط",
+    mission:"اندازه‌گیری فاصله با اولتراسونیک HC-SR04 و هشدار در فاصله نزدیک",
+    parts:["آردوینو نانو","سنسور HC-SR04","بازر","سیم جامپر","بردبورد"],
+    applications:["سنسور دنده عقب خودرو","اندازه‌گیری صنعتی","ربات خودران","سیستم ضد برخورد"],
+    learn:"با محاسبه زمان پالس و تبدیلش به فاصله آشنا می‌شی." },
+  { id:5, name:"ساعت هوشمند OLED", icon:"⏰", difficulty:"پیشرفته",
+    mission:"ساخت ساعت دقیق با ماژول RTC و نمایش زمان روی صفحه OLED",
+    parts:["آردوینو نانو","صفحه OLED","ماژول RTC DS3231","دکمه فشاری","سیم جامپر"],
+    applications:["ساعت رومیزی هوشمند","تایمر صنعتی","زمان‌بندی آبیاری","پروژه‌های اینترنت اشیا"],
+    learn:"کار با ماژول‌های I2C و مدیریت زمان واقعی رو یاد می‌گیری." }
+];
+
+let currentUser = null;
+
+function renderProjects(){
+  const grid = document.getElementById('projectsGrid');
+  const icons = [
+    ['💡','🔌','🟢','⚡','⚙️','🔴'],
+    ['🌡️','📊','🌡️','💧','🖥️','🔵'],
+    ['🚨','🎯','👁️','🛡️','🔊','🟡'],
+    ['📏','📡','🔊','📶','🎯','⚪'],
+    ['⏰','⚙️','🕐','⏱️','📟','🟣']
+  ];
+  grid.innerHTML = PROJECTS.map((p,i)=>`
+    <div class="project-card" onclick="openProject(${p.id})">
+      <div class="cube-wrap"><div class="cube">
+        <div class="cube-face front">${icons[i][0]}</div>
+        <div class="cube-face back">${icons[i][1]}</div>
+        <div class="cube-face right">${icons[i][2]}</div>
+        <div class="cube-face left">${icons[i][3]}</div>
+        <div class="cube-face top">${icons[i][4]}</div>
+        <div class="cube-face bottom">${icons[i][5]}</div>
+      </div></div>
+      <h3>${p.name}</h3>
+      <span class="difficulty">${p.difficulty}</span>
+      <p class="mission">${p.mission}</p>
+    </div>`).join('');
+}
+
+function openModal(id){document.getElementById(id).classList.add('active');document.body.style.overflow='hidden'}
+function closeModal(id){document.getElementById(id).classList.remove('active');document.body.style.overflow=''}
+
+document.querySelectorAll('.modal-overlay').forEach(o=>{
+  o.addEventListener('click',e=>{if(e.target===o){o.classList.remove('active');document.body.style.overflow=''}});
+});
+
+function openProject(id){
+  const p = PROJECTS.find(x=>x.id===id); if(!p) return;
+  document.getElementById('projectModalContent').innerHTML = `
+    <button class="modal-close" onclick="closeModal('projectModal')">×</button>
+    <div class="scene-3d">
+      <div class="scene-rotator">
+        <div class="scene-platform"></div>
+        <div class="arduino-board"></div>
+        <div class="scene-comp comp-1"></div>
+        <div class="scene-comp comp-2"></div>
+        <div class="scene-comp comp-3"></div>
+        <div class="scene-comp comp-4"></div>
+      </div>
+    </div>
+    <h2>${p.icon} ${p.name}</h2>
+    <span class="difficulty-badge">${p.difficulty}</span>
+    <h3>🎯 مأموریت پروژه</h3>
+    <p>${p.mission}</p>
+    <h3>🔧 قطعات مورد نیاز</h3>
+    <ul>${p.parts.map(x=>`<li>${x}</li>`).join('')}</ul>
+    <h3>🌍 کاربرد در زندگی واقعی</h3>
+    <ul>${p.applications.map(x=>`<li>${x}</li>`).join('')}</ul>
+    <h3>📚 چی یاد می‌گیری</h3>
+    <p>${p.learn}</p>`;
+  openModal('projectModal');
+}
+
+document.getElementById('loginBtn').addEventListener('click',e=>{
+  e.preventDefault();
+  if(currentUser) showAccount(); else { openModal('loginModal'); setTimeout(()=>document.getElementById('loginCode').focus(),100); }
+});
+
+document.getElementById('loginCode').addEventListener('keypress',e=>{if(e.key==='Enter') attemptLogin()});
+
+function attemptLogin(){
+  const code = document.getElementById('loginCode').value.trim().toUpperCase();
+  const errEl = document.getElementById('loginError');
+  if(!code){errEl.textContent='کد رو وارد کن';errEl.classList.add('show');return}
+  const user = ACCOUNTS.find(u=>u.code===code);
+  if(!user){errEl.textContent='کد اشتباهه! دوباره تلاش کن';errEl.classList.add('show');return}
+  currentUser = user;
+  localStorage.setItem('electrob_user',JSON.stringify(user));
+  errEl.classList.remove('show');
+  document.getElementById('loginCode').value='';
+  closeModal('loginModal');
+  updateLoginButton();
+  showAccount();
+}
+
+function updateLoginButton(){
+  const btn = document.getElementById('loginBtn');
+  if(currentUser){btn.textContent=currentUser.name.split(' ')[0];}
+  else{btn.textContent='ورود';}
+}
+
+function logout(){
+  currentUser=null;
+  localStorage.removeItem('electrob_user');
+  updateLoginButton();
+  closeModal('accountModal');
+}
+
+function showAccount(){
+  if(!currentUser) return;
+  const scores = JSON.parse(localStorage.getItem('electrob_scores')||'{}');
+  const myScores = scores[currentUser.code]||{quiz:0,projects:0};
+  const students = ACCOUNTS.filter(u=>u.role==='student').map(u=>({
+    name:u.name, score:(scores[u.code]?.quiz||0)+(scores[u.code]?.projects||0)*10, isMe:u.code===currentUser.code
+  })).sort((a,b)=>b.score-a.score);
+  const myRank = students.findIndex(u=>u.isMe)+1;
+  let html = `
+    <button class="modal-close" onclick="closeModal('accountModal')">×</button>
+    <div class="account-header">
+      <div class="account-avatar">${currentUser.avatar}</div>
+      <div><h3>${currentUser.name}</h3>
+      <div class="role">${currentUser.role==='teacher'?'👨‍🏫 استاد':'🧑 دانش‌آموز'}</div></div>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card"><span class="num">${myScores.quiz}</span><span class="label">امتیاز کوییز</span></div>
+      <div class="stat-card"><span class="num">${myScores.projects}</span><span class="label">پروژه انجام‌شده</span></div>
+      <div class="stat-card"><span class="num">${myRank||'—'}</span><span class="label">رتبه کلاس</span></div>
+    </div>
+    <div class="leaderboard">
+      <h4>🏆 رتبه‌بندی کلاس</h4>
+      ${students.map((u,i)=>`
+        <div class="leader-row ${u.isMe?'me':''}">
+          <span class="leader-rank">#${i+1}</span>
+          <span class="leader-name">${u.name}</span>
+          <span class="leader-score">${u.score} امتیاز</span>
+        </div>`).join('')}
+    </div>
+    <button class="btn btn-secondary" style="width:100%;margin-top:2rem" onclick="logout()">خروج از حساب</button>`;
+  document.getElementById('accountModalContent').innerHTML = html;
+  openModal('accountModal');
+}
+
+function init(){
+  renderProjects();
+  const saved = localStorage.getItem('electrob_user');
+  if(saved){ try{currentUser=JSON.parse(saved);updateLoginButton();}catch(e){} }
+}
+init();
+</script>
+</body>
+</html>
